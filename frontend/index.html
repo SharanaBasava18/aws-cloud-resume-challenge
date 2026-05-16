@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cloud Engineer portfolio focused on AWS infrastructure, platform engineering, and production-ready architecture." />
+  <title>Cloud Engineer Portfolio | AWS Resume Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top navigation for quick access to each portfolio section -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary">
+      <a class="brand" href="#hero" aria-label="Home">
+        <span class="brand-mark">AWS</span>
+        <span class="brand-text">Cloud Portfolio</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero section: clear positioning for recruiters and hiring managers -->
+    <section class="hero section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Cloud Engineer | Infrastructure | Platform Engineering</p>
+          <h1>Building reliable AWS infrastructure with a focus on automation, security, and scalability.</h1>
+          <p class="hero-description">
+            Fresher-ready portfolio for Cloud Engineer roles, designed to demonstrate hands-on AWS fundamentals,
+            infrastructure thinking, and production-minded delivery.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <span class="meta-label">Focus</span>
+              <span class="meta-value">AWS, Terraform, Linux, CI/CD</span>
+            </div>
+            <div>
+              <span class="meta-label">Target Roles</span>
+              <span class="meta-value">Cloud Engineer, Infra, Platform</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Profile summary">
+          <p class="card-label">Portfolio Snapshot</p>
+          <ul class="summary-list">
+            <li>Hands-on AWS cloud resume challenge project</li>
+            <li>Infrastructure-first learning path</li>
+            <li>Strong focus on reliability and security basics</li>
+            <li>Documented projects and certifications</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About section: concise professional introduction -->
+    <section class="section" id="about">
+      <div class="container section-header">
+        <p class="eyebrow">About Me</p>
+        <h2>Practical cloud learner with an infrastructure mindset.</h2>
+        <p>
+          I am a fresher building a professional foundation in AWS cloud engineering, infrastructure operations,
+          and platform engineering. My goal is to deliver dependable cloud systems, not just classroom-style demos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills section: recruiter-friendly summary of technical stack -->
+    <section class="section alt-section" id="skills">
+      <div class="container">
+        <div class="section-header narrow">
+          <p class="eyebrow">Technical Skills</p>
+          <h2>Core technologies aligned to cloud and infrastructure roles.</h2>
+        </div>
+
+        <div class="card-grid skills-grid">
+          <article class="card">
+            <h3>AWS</h3>
+            <p>EC2, S3, IAM, Lambda, CloudFront, API Gateway, Route 53, DynamoDB, CloudWatch.</p>
+          </article>
+          <article class="card">
+            <h3>Infrastructure</h3>
+            <p>Linux, networking basics, DNS, load balancing, high availability, backup and recovery concepts.</p>
+          </article>
+          <article class="card">
+            <h3>Automation</h3>
+            <p>Terraform basics, GitHub Actions, shell scripting, deployment workflows, and change tracking.</p>
+          </article>
+          <article class="card">
+            <h3>Engineering Tools</h3>
+            <p>Git, GitHub, Markdown documentation, CLI tooling, and troubleshooting with logs and metrics.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects section: highlight practical outcomes and implementation detail -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header narrow">
+          <p class="eyebrow">Featured Projects</p>
+          <h2>Projects that show cloud fundamentals, delivery discipline, and ownership.</h2>
+        </div>
+
+        <div class="card-grid project-grid">
+          <article class="card project-card">
+            <p class="project-tag">AWS Cloud Resume Challenge</p>
+            <h3>Static portfolio hosted on AWS</h3>
+            <p>
+              A secure, scalable static website hosted with AWS services to demonstrate deployment, CDN usage,
+              and production-style hosting basics.
+            </p>
+            <ul class="feature-list">
+              <li>S3 static hosting</li>
+              <li>CloudFront distribution</li>
+              <li>Route 53 custom domain</li>
+            </ul>
+          </article>
+
+          <article class="card project-card">
+            <p class="project-tag">Serverless Practice</p>
+            <h3>API-backed visitor counter</h3>
+            <p>
+              A placeholder-ready architecture for future Lambda and DynamoDB integration to track visitor counts
+              without exposing application logic in the frontend.
+            </p>
+            <ul class="feature-list">
+              <li>Lambda + API Gateway</li>
+              <li>DynamoDB persistence</li>
+              <li>Minimal frontend integration</li>
+            </ul>
+          </article>
+
+          <article class="card project-card">
+            <p class="project-tag">Infrastructure Practice</p>
+            <h3>Automation and observability workflow</h3>
+            <p>
+              Infrastructure learning project focused on repeatable provisioning, logging, monitoring, and basic
+              failure analysis using AWS-native tools.
+            </p>
+            <ul class="feature-list">
+              <li>Terraform planning mindset</li>
+              <li>CloudWatch monitoring</li>
+              <li>Operational documentation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications section: credibility for fresher profile -->
+    <section class="section alt-section" id="certifications">
+      <div class="container">
+        <div class="section-header narrow">
+          <p class="eyebrow">Certifications</p>
+          <h2>Credentials that support cloud learning and hiring confidence.</h2>
+        </div>
+
+        <div class="card-grid cert-grid">
+          <article class="card">
+            <h3>AWS Certification</h3>
+            <p>Placeholder for AWS Certified Cloud Practitioner or AWS Solutions Architect Associate.</p>
+          </article>
+          <article class="card">
+            <h3>Linux / Networking</h3>
+            <p>Any relevant certification, coursework, or lab-based proof of operational fundamentals.</p>
+          </article>
+          <article class="card">
+            <h3>Git & Automation</h3>
+            <p>Version control and automation training that supports real-world delivery practices.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture section: show system thinking instead of only listing technologies -->
+    <section class="section" id="architecture">
+      <div class="container architecture-layout">
+        <div class="section-header narrow">
+          <p class="eyebrow">Cloud Architecture</p>
+          <h2>Simple, secure architecture with a production-first mindset.</h2>
+          <p>
+            This portfolio is designed to communicate how the frontend fits into an AWS-native delivery model,
+            which is useful for cloud, infrastructure, and platform engineering interviews.
+          </p>
+        </div>
+
+        <div class="architecture-card card">
+          <ol class="architecture-steps">
+            <li>User accesses the site through Route 53 and CloudFront.</li>
+            <li>CloudFront serves the static frontend from an S3 origin.</li>
+            <li>A future visitor counter can call API Gateway and Lambda.</li>
+            <li>Lambda stores counts in DynamoDB with IAM-based access control.</li>
+            <li>CloudWatch is used for logs, metrics, and operational visibility.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick links section: useful for recruiters and scanning -->
+    <section class="section alt-section" id="links">
+      <div class="container link-strip">
+        <a class="btn btn-link" href="https://github.com/" target="_blank" rel="noreferrer">GitHub Profile</a>
+        <a class="btn btn-link" href="#" target="_blank" rel="noreferrer">Resume</a>
+      </div>
+    </section>
+
+    <!-- Contact section: direct and simple recruiter contact path -->
+    <section class="section" id="contact">
+      <div class="container contact-layout">
+        <div class="section-header narrow">
+          <p class="eyebrow">Contact</p>
+          <h2>Open to cloud engineering, infrastructure, and platform roles.</h2>
+          <p>
+            Best suited for recruiters or hiring managers who want a clear view of cloud fundamentals and a
+            professional learning trajectory.
+          </p>
+        </div>
+
+        <div class="card contact-card">
+          <p class="card-label">Get in touch</p>
+          <p>Email: your.email@example.com</p>
+          <p>LinkedIn: linkedin.com/in/your-profile</p>
+          <p>Location: Open to remote or hybrid opportunities</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visitor counter placeholder: reserved for future API-backed integration -->
+    <section class="section" id="visitor-counter">
+      <div class="container counter-card card">
+        <p class="card-label">Visitor Counter</p>
+        <p id="visitor-count">Visitor count loading placeholder</p>
+        <p class="counter-note">This area is reserved for a future AWS API + Lambda implementation.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built for the AWS Cloud Resume Challenge and optimized for cloud engineering hiring.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
