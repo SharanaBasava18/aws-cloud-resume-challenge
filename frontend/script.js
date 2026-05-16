@@ -36,15 +36,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Placeholder hook for a future visitor counter API.
+  // Load the live visitor count from the AWS API when the page is ready.
   updateVisitorCounter(visitorCount);
 });
 
-function updateVisitorCounter(element) {
+async function updateVisitorCounter(element) {
   if (!element) {
     return;
   }
 
-  // This text will later be replaced by a real API response from AWS.
-  element.textContent = "Visitor counter will be connected to AWS API Gateway + Lambda";
+  try {
+    const response = await fetch("https://kshl21djfl.execute-api.ap-south-2.amazonaws.com/visitor-count");
+
+    if (!response.ok) {
+      throw new Error("Visitor counter request failed.");
+    }
+
+    const data = await response.json();
+    element.textContent = data.count;
+  } catch (error) {
+    element.textContent = "Unavailable";
+  }
 }
