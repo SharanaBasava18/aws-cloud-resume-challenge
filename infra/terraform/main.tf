@@ -28,7 +28,8 @@ resource "aws_s3_bucket" "portfolio_bucket" {
 
 // IAM role for the Lambda function that updates the visitor counter.
 resource "aws_iam_role" "lambda_role" {
-	name = "portfolio-visitor-counter-lambda-role"
+	name = "portfolio-visitor-counter-role-erih9bu3"
+	path = "/service-role/"
 
 	assume_role_policy = jsonencode({
 		Version = "2012-10-17"
@@ -53,8 +54,8 @@ resource "aws_iam_role" "lambda_role" {
 resource "aws_lambda_function" "visitor_counter_lambda" {
 	function_name = "portfolio-visitor-counter"
 	role          = aws_iam_role.lambda_role.arn
-	handler       = "index.handler"
-	runtime       = "python3.12"
+	handler       = "lambda_function.lambda_handler"
+	runtime       = "python3.14"
 	filename      = "lambda.zip"
 
 	tags = {
