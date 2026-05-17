@@ -51,12 +51,17 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 // Lambda reads and updates the DynamoDB visitor counter.
+// Marked as import-only: filename is required by Terraform but ignored to prevent code deployment.
 resource "aws_lambda_function" "visitor_counter_lambda" {
 	function_name = "portfolio-visitor-counter"
 	role          = aws_iam_role.lambda_role.arn
 	handler       = "lambda_function.lambda_handler"
 	runtime       = "python3.14"
 	filename      = "lambda.zip"
+
+	lifecycle {
+		ignore_changes = [filename, source_code_hash]
+	}
 
 	tags = {
 		Project = "CloudResumeChallenge"
