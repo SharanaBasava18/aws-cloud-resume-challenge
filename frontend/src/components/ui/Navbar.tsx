@@ -44,13 +44,15 @@ export default function Navbar() {
     <header className={`navbar-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
       <nav className="navbar">
         <a href="#home" className="navbar-logo">
-          <span className="logo-text">SHARANABASAVA</span>
+          <div className="logo-header-row">
+            <span className="logo-text">SHARANABASAVA</span>
+            <span className="logo-badge-live">
+              AWS LIVE
+            </span>
+          </div>
           <span className="logo-badge">
             <span className="pulsing-dot"></span>
             FINAL-YEAR CSE • BITM '27
-          </span>
-          <span className="logo-badge-live">
-            AWS LIVE
           </span>
         </a>
 

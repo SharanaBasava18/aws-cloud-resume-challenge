@@ -28,14 +28,22 @@
 
 .navbar-logo {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.logo-header-row {
+  display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
 }
 
 .logo-text {
   font-family: var(--font-heading);
   font-size: 1.85rem;
+  line-height: 1;
   color: var(--text-primary);
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(130, 45, 27, 0.12);
@@ -53,10 +61,10 @@
   background: rgba(255, 255, 255, 0.88);
   color: var(--text-primary);
   border: 1px solid rgba(130, 45, 27, 0.22);
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 20px;
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   box-shadow: 0 2px 6px rgba(130, 45, 27, 0.06);
