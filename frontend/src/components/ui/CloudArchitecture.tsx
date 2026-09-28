@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BsGlobe2, 
   BsShieldLockFill, 
@@ -11,12 +11,35 @@ import {
 } from 'react-icons/bs';
 import './CloudArchitecture.css';
 
+const VISITOR_API_URL = 'https://kshl21djfl.execute-api.ap-south-2.amazonaws.com/visitor-count';
+
 export default function CloudArchitecture() {
-  const [visitorCount, setVisitorCount] = useState(1482);
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const [isPulsing, setIsPulsing] = useState(false);
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
-  const triggerSimulation = () => {
+  useEffect(() => {
+    let isMounted = true;
+    fetch(VISITOR_API_URL)
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch visitor count');
+        return res.json();
+      })
+      .then((data) => {
+        if (isMounted && typeof data.count === 'number') {
+          setVisitorCount(data.count);
+        }
+      })
+      .catch((err) => {
+        console.warn('Could not fetch live visitor count:', err);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const triggerSimulation = async () => {
     if (isPulsing) return;
     setIsPulsing(true);
 
@@ -27,11 +50,25 @@ export default function CloudArchitecture() {
       }, idx * 300);
     });
 
-    setTimeout(() => {
-      setVisitorCount((prev) => prev + 1);
-      setActiveStep(null);
-      setIsPulsing(false);
-    }, steps.length * 300 + 100);
+    try {
+      const res = await fetch(VISITOR_API_URL);
+      const data = await res.json();
+      setTimeout(() => {
+        if (typeof data.count === 'number') {
+          setVisitorCount(data.count);
+        } else {
+          setVisitorCount((prev) => (prev !== null ? prev + 1 : 1));
+        }
+        setActiveStep(null);
+        setIsPulsing(false);
+      }, steps.length * 300 + 100);
+    } catch {
+      setTimeout(() => {
+        setVisitorCount((prev) => (prev !== null ? prev + 1 : 1));
+        setActiveStep(null);
+        setIsPulsing(false);
+      }, steps.length * 300 + 100);
+    }
   };
 
   const nodes = [
@@ -101,7 +138,7 @@ export default function CloudArchitecture() {
               <div className="counter-info">
                 <span className="counter-title">LIVE DYNAMODB VISITOR COUNTER</span>
                 <span className="counter-number">
-                  {visitorCount.toLocaleString()} <span className="counter-unit">HITS</span>
+                  {visitorCount !== null ? visitorCount.toLocaleString() : '...'} <span className="counter-unit">HITS</span>
                 </span>
               </div>
             </div>
