@@ -1,0 +1,218 @@
+.education-section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 20;
+}
+
+.education-timeline-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.edu-card-deluxe {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid rgba(130, 45, 27, 0.16);
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow: 0 10px 30px -10px rgba(130, 45, 27, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.edu-card-deluxe:hover {
+  transform: translateY(-4px);
+  border-color: var(--text-primary);
+  box-shadow: 0 16px 38px -10px rgba(130, 45, 27, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.edu-card-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.edu-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(142, 46, 28, 0.14) 0%, rgba(142, 46, 28, 0.05) 100%);
+  border: 1.5px solid var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.edu-card-deluxe:hover .edu-icon-circle {
+  background: var(--text-primary);
+  color: #ffffff;
+  transform: scale(1.08) rotate(5deg);
+}
+
+.edu-score-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(142, 46, 28, 0.08);
+  border: 1px solid rgba(142, 46, 28, 0.2);
+  padding: 6px 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.score-lbl {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.score-val {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.edu-card-content {
+  flex-grow: 1;
+}
+
+.edu-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edu-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.edu-meta-icon {
+  color: var(--text-primary);
+}
+
+.edu-status-tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  background: rgba(130, 45, 27, 0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(130, 45, 27, 0.16);
+}
+
+.edu-degree {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.edu-institution {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.edu-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
+.edu-desc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.edu-coursework-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coursework-title {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.coursework-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.course-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(130, 45, 27, 0.18);
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.course-check {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .edu-card-deluxe {
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+  .edu-card-sidebar {
+    flex-direction: row;
+    align-items: center;
+  }
+  .edu-degree {
+    font-size: 1.4rem;
+  }
+}

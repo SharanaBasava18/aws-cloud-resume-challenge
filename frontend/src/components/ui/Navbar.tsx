@@ -1,24 +1,84 @@
-import React from 'react';
-import { FiArrowUpRight } from 'react-icons/fi';
+import React, { useState, useEffect } from 'react';
+import { FiArrowUpRight, FiMenu, FiX, FiCloud } from 'react-icons/fi';
 import './Navbar.css';
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+
+      const sections = ['home', 'projects', 'certifications', 'education', 'architecture', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { id: 'home', label: 'HOME' },
+    { id: 'projects', label: 'PROJECTS' },
+    { id: 'certifications', label: 'CERTIFICATIONS' },
+    { id: 'education', label: 'EDUCATION' },
+    { id: 'architecture', label: 'ARCHITECTURE' },
+    { id: 'contact', label: 'CONTACT' },
+  ];
+
   return (
-    <nav className="navbar">
-      <div className="navbar-logo">
-        SHARANABASAVA
-      </div>
-      <div className="navbar-links">
-        <a href="#home" className="nav-pill active">HOME</a>
-        <a href="#projects" className="nav-pill">PROJECTS</a>
-        <a href="#skills" className="nav-pill">SKILLS</a>
-        <a href="#certifications" className="nav-pill">CERTIFICATIONS</a>
-        <a href="#education" className="nav-pill">EDUCATION</a>
-        <a href="#contact" className="nav-pill">CONTACT</a>
-      </div>
-      <button className="navbar-btn">
-        <FiArrowUpRight size={20} />
-      </button>
-    </nav>
+    <header className={`navbar-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
+      <nav className="navbar">
+        <a href="#home" className="navbar-logo">
+          <span className="logo-text">SHARANABASAVA</span>
+          <span className="logo-badge">
+            <span className="pulsing-dot"></span>
+            AWS LIVE
+          </span>
+        </a>
+
+        <div className={`navbar-links ${mobileMenuOpen ? 'open' : ''}`}>
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`nav-pill ${activeSection === link.id ? 'active' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        <div className="navbar-actions">
+          <a href="#contact" className="navbar-cta-btn">
+            <span>GET IN TOUCH</span>
+            <FiArrowUpRight className="cta-arrow" />
+          </a>
+
+          <button
+            className="mobile-toggle-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+          >
+            {mobileMenuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+          </button>
+        </div>
+      </nav>
+    </header>
   );
 }
