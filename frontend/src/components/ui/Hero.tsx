@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FiArrowRight, FiLinkedin, FiGithub, FiMail, FiCode, FiCopy, FiCheck } from 'react-icons/fi';
+import React from 'react';
+import { FiArrowRight, FiLinkedin, FiGithub, FiMail, FiCode } from 'react-icons/fi';
 import { 
   BsBarChartFill, 
   BsCloudFill, 
@@ -16,13 +16,6 @@ import {
 import './Hero.css';
 
 export default function Hero() {
-  const [activeTab, setActiveTab] = useState<'profile' | 'lakehouse' | 'cloud'>('profile');
-  const [copied, setCopied] = useState(false);
-
-  const copySnippet = () => {
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
   return (
     <section id="home" className="hero-section">
       {/* 3D Central Backdrop Scene with hdimage.jpeg */}
@@ -90,91 +83,7 @@ export default function Hero() {
             </h1>
           </div>
 
-          {/* Interactive Developer Runtime Console */}
-          <div className="hero-terminal-card">
-            <div className="terminal-header">
-              <div className="terminal-dots">
-                <span className="dot dot-red"></span>
-                <span className="dot dot-yellow"></span>
-                <span className="dot dot-green"></span>
-              </div>
-              <div className="terminal-tabs">
-                <button
-                  type="button"
-                  className={`term-tab ${activeTab === 'profile' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('profile')}
-                >
-                  profile.sh
-                </button>
-                <button
-                  type="button"
-                  className={`term-tab ${activeTab === 'lakehouse' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('lakehouse')}
-                >
-                  lakehouse.py
-                </button>
-                <button
-                  type="button"
-                  className={`term-tab ${activeTab === 'cloud' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('cloud')}
-                >
-                  cloud.tf
-                </button>
-              </div>
-              <button 
-                type="button" 
-                className="terminal-copy-btn" 
-                onClick={copySnippet} 
-                title="Copy Terminal Snippet"
-                aria-label="Copy Terminal Snippet"
-              >
-                {copied ? <FiCheck size={12} className="copy-success" /> : <FiCopy size={12} />}
-              </button>
-            </div>
 
-            <div className="terminal-body">
-              {activeTab === 'profile' && (
-                <div className="terminal-code">
-                  <div className="term-line">
-                    <span className="c-prompt">sharan@bitm:~$</span> <span className="c-cmd">whoami --focus</span>
-                  </div>
-                  <div className="term-line"><span className="c-key">Candidate:</span> <span className="c-val">Sharanabasava</span></div>
-                  <div className="term-line"><span className="c-key">Education:</span> <span className="c-val">B.E. Computer Science ('27)</span></div>
-                  <div className="term-line"><span className="c-key">Academics:</span> <span className="c-val">8.59 CGPA • BITM</span></div>
-                  <div className="term-line"><span className="c-key">Core Stack:</span> <span className="c-tag">AWS</span> <span className="c-tag">Databricks</span> <span className="c-tag">Python</span> <span className="c-tag">SQL</span></div>
-                </div>
-              )}
-
-              {activeTab === 'lakehouse' && (
-                <div className="terminal-code">
-                  <div className="term-line">
-                    <span className="c-prompt">spark@databricks:~$</span> <span className="c-cmd">pyspark --pipeline</span>
-                  </div>
-                  <div className="term-line"><span className="c-accent">from</span> delta.tables <span className="c-accent">import</span> DeltaTable</div>
-                  <div className="term-line"><span className="c-success">✓ Ingest:</span> Bronze Raw Stream [S3]</div>
-                  <div className="term-line"><span className="c-success">✓ Transform:</span> Silver Deduplication [MERGE]</div>
-                  <div className="term-line"><span className="c-success">✓ Aggregate:</span> Gold Business Marts [Spark SQL]</div>
-                </div>
-              )}
-
-              {activeTab === 'cloud' && (
-                <div className="terminal-code">
-                  <div className="term-line">
-                    <span className="c-prompt">aws@terraform:~$</span> <span className="c-cmd">terraform apply -auto-approve</span>
-                  </div>
-                  <div className="term-line"><span className="c-key">provider:</span> <span className="c-val">"aws" ~&gt; us-east-1</span></div>
-                  <div className="term-line"><span className="c-success">✓ CDN + Static:</span> CloudFront + S3 Website</div>
-                  <div className="term-line"><span className="c-success">✓ Backend:</span> API Gateway + Python Lambda</div>
-                  <div className="term-line"><span className="c-success">✓ Database:</span> DynamoDB Atomic Visitor Counter</div>
-                </div>
-              )}
-            </div>
-
-            <div className="terminal-footer">
-              <span className="terminal-status-dot"></span>
-              <span className="terminal-status-text">INTERACTIVE TERMINAL • READY FOR DEPLOYMENT</span>
-            </div>
-          </div>
 
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">
