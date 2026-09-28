@@ -47,6 +47,9 @@ export default function Navbar() {
           <span className="logo-text">SHARANABASAVA</span>
           <span className="logo-badge">
             <span className="pulsing-dot"></span>
+            FINAL-YEAR CSE • BITM '27
+          </span>
+          <span className="logo-badge-live">
             AWS LIVE
           </span>
         </a>

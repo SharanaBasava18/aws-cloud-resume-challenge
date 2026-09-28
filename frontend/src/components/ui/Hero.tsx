@@ -69,11 +69,6 @@ export default function Hero() {
       <div className="hero-content">
         {/* Left Column */}
         <div className="hero-left">
-          <div className="hero-status-tag">
-            <span className="status-ping"></span>
-            <span className="status-text">FINAL-YEAR CSE • BITM '27</span>
-          </div>
-
           <div className="hero-identity-group">
             <span className="hero-eyebrow-tag">PORTFOLIO & WORKSPACE</span>
             <h1 className="hero-punchy-headline">
@@ -82,8 +77,6 @@ export default function Hero() {
               SCALE.
             </h1>
           </div>
-
-
 
           <div className="hero-buttons">
             <a href="#projects" className="btn btn-primary">

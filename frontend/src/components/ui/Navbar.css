@@ -50,15 +50,32 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text-primary);
+  border: 1px solid rgba(130, 45, 27, 0.22);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 2px 6px rgba(130, 45, 27, 0.06);
+  white-space: nowrap;
+}
+
+.logo-badge-live {
+  display: inline-flex;
+  align-items: center;
   background: rgba(46, 125, 50, 0.12);
   color: #1b5e20;
   border: 1px solid rgba(46, 125, 50, 0.25);
   padding: 3px 8px;
   border-radius: 20px;
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .pulsing-dot {
@@ -195,5 +212,18 @@
   }
   .mobile-toggle-btn {
     display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-text {
+    font-size: 1.45rem;
+  }
+  .logo-badge {
+    font-size: 0.60rem;
+    padding: 3px 7px;
+  }
+  .logo-badge-live {
+    display: none;
   }
 }
